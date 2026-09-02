@@ -74,7 +74,7 @@ sequenceDiagram
 - **Asynchronous Click Analytics**: Non-blocking database click count increments that do not slow down redirect speeds.
 - **Security & Anomaly Detection**: Rejects invalid schemes, blocks self-referencing redirect loops, and flags suspicious domain patterns.
 - **Rate Limiting**: Configured `express-rate-limit` middleware on shorten and redirect routes to prevent abuse.
-- **Modern Glassmorphic UI**: Built with React, featuring live click counters, copy-to-clipboard, search filtering, and sortable dashboards.
+- **Minimalist Professional UI**: Built with React, featuring a clean, light-themed developer aesthetic with live click counters, copy-to-clipboard, search filtering, and sortable dashboards.
 
 ---
 
