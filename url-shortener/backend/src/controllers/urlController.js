@@ -44,7 +44,7 @@ export const shortenUrl = async (req, res, next) => {
       existingUrl = await inMemoryStore.findOneByOriginalUrl(cleanUrl);
     }
 
-    const baseUrl = process.env.BASE_URL || `http://localhost:${process.env.PORT || 5000}`;
+    const baseUrl = process.env.BASE_URL || `http://localhost:${process.env.PORT || 5001}`;
 
     if (existingUrl) {
       return res.status(200).json({
@@ -192,7 +192,7 @@ export const getUrlStats = async (req, res, next) => {
       });
     }
 
-    const baseUrl = process.env.BASE_URL || `http://localhost:${process.env.PORT || 5000}`;
+    const baseUrl = process.env.BASE_URL || `http://localhost:${process.env.PORT || 5001}`;
 
     return res.status(200).json({
       success: true,
@@ -220,7 +220,7 @@ export const getAllUrls = async (req, res, next) => {
     const { sort = 'newest', limit = 50 } = req.query;
 
     let formattedUrls = [];
-    const baseUrl = process.env.BASE_URL || `http://localhost:${process.env.PORT || 5000}`;
+    const baseUrl = process.env.BASE_URL || `http://localhost:${process.env.PORT || 5001}`;
 
     if (isMongoReady()) {
       let sortOptions = { createdAt: -1 };

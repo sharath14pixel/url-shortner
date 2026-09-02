@@ -15,7 +15,7 @@ const SUSPICIOUS_PATTERNS = [
  * @param {string} baseUrl - Base URL of the shortener application
  * @returns {object} { isValid: boolean, isFlagged: boolean, reason?: string }
  */
-export const validateUrl = (urlString, baseUrl = process.env.BASE_URL || 'http://localhost:5000') => {
+export const validateUrl = (urlString, baseUrl = process.env.BASE_URL || 'http://localhost:5001') => {
   if (!urlString || typeof urlString !== 'string') {
     return { isValid: false, isFlagged: false, reason: 'URL is required.' };
   }

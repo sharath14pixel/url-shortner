@@ -5,7 +5,7 @@ import app from './app.js';
 import { connectDB } from './config/db.js';
 import { connectRedis } from './config/redis.js';
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 const startServer = async () => {
   console.log('[System] Initializing URL Shortener Backend Service...');
