@@ -101,12 +101,12 @@ export const Dashboard = ({ onViewStats }) => {
 
       {loading ? (
         <div className="loading-state">
-          <Loader2 className="w-6 h-6 text-indigo-500 animate-spin mx-auto mb-2" />
+          <Loader2 className="w-6 h-6 animate-spin mx-auto mb-2" />
           <span>Loading shortened links...</span>
         </div>
       ) : error ? (
         <div className="error-banner">
-          <ShieldAlert className="w-5 h-5 text-red-400" />
+          <ShieldAlert className="w-5 h-5" />
           <span>{error}</span>
         </div>
       ) : filteredUrls.length === 0 ? (
@@ -131,12 +131,12 @@ export const Dashboard = ({ onViewStats }) => {
             <tbody>
               {filteredUrls.map((item) => (
                 <tr key={item.shortCode}>
-                  <td style={{ fontWeight: 600, color: '#a5b4fc' }}>
+                  <td style={{ fontWeight: 500 }}>
                     <a
                       href={item.shortUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ color: '#a5b4fc', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}
+                      style={{ color: 'inherit', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}
                     >
                       {item.shortCode}
                       <ExternalLink className="w-3 h-3 opacity-60" />
@@ -174,7 +174,7 @@ export const Dashboard = ({ onViewStats }) => {
                         title="Copy Short URL"
                       >
                         {copiedCode === item.shortCode ? (
-                          <Check className="w-4 h-4 text-emerald-400" />
+                          <Check className="w-4 h-4" />
                         ) : (
                           <Copy className="w-4 h-4" />
                         )}
@@ -184,7 +184,7 @@ export const Dashboard = ({ onViewStats }) => {
                         className="action-btn"
                         title="View Detailed Analytics"
                       >
-                        <BarChart3 className="w-4 h-4 text-indigo-400" />
+                        <BarChart3 className="w-4 h-4" />
                       </button>
                     </div>
                   </td>

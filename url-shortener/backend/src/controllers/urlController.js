@@ -124,24 +124,25 @@ export const redirectUrl = async (req, res, next) => {
       }
 
       if (!urlDoc) {
+        const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
         return res.status(404).send(`
           <!DOCTYPE html>
           <html>
             <head>
               <title>404 - Link Not Found</title>
               <style>
-                body { background: #0f172a; color: #f8fafc; font-family: system-ui, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-                .card { background: #1e293b; padding: 2rem; border-radius: 12px; text-align: center; border: 1px solid #334155; }
-                h1 { color: #ef4444; margin-bottom: 0.5rem; }
-                p { color: #94a3b8; }
-                a { color: #38bdf8; text-decoration: none; font-weight: 600; }
+                body { background: #ffffff; color: #000000; font-family: system-ui, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+                .card { background: #ffffff; padding: 2rem; border-radius: 8px; text-align: center; border: 1px solid #eaeaea; box-shadow: 0 4px 14px rgba(0,0,0,0.05); }
+                h1 { margin-bottom: 0.5rem; }
+                p { color: #666666; }
+                a { color: #000000; text-decoration: underline; font-weight: 500; }
               </style>
             </head>
             <body>
               <div class="card">
-                <h1>404 - Short Link Not Found</h1>
+                <h1>404 - Link Not Found</h1>
                 <p>The short link <code>/${code}</code> does not exist or has expired.</p>
-                <p><a href="http://localhost:5173">Return to SwiftURL Home</a></p>
+                <p><a href="${frontendUrl}">Return to ShortURL Home</a></p>
               </div>
             </body>
           </html>
