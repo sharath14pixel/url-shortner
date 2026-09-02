@@ -20,7 +20,14 @@ export const shortenUrl = async (originalUrl) => {
     return response.data;
   } catch (error) {
     if (error.response && error.response.data) {
-      throw new Error(error.response.data.error || 'Failed to shorten URL.');
+      const errData = error.response.data;
+      // Handle Vite proxy connection errors (which return error as an object)
+      if (errData.error && typeof errData.error === 'object' && errData.error.code === 'ECONNREFUSED') {
+        throw new Error('Cannot connect to backend. Please ensure the backend server is running.');
+      }
+      
+      const errMsg = errData.error || errData.message || 'Failed to shorten URL.';
+      throw new Error(typeof errMsg === 'object' ? JSON.stringify(errMsg) : errMsg);
     }
     throw new Error('Network error. Unable to reach backend server.');
   }
