@@ -13,7 +13,7 @@ export const Home = ({ onViewStats }) => {
           Shorten. Share. Track.
         </h1>
         <p className="hero-subtitle" style={{ marginBottom: '2rem' }}>
-          Transform long, unwieldy URLs into clean, shareable links — powered by Base62 encoding.
+          Transform long, unwieldy URLs into clean, shareable links.
         </p>
       </section>
 
